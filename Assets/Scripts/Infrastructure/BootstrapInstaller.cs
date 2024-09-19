@@ -15,6 +15,9 @@ public class BootstrapInstaller : MonoInstaller
         BindProgressService();
         BindCharacterService();
         BindStateMachine();
+
+        //StateMachine stateMachine = Container.Resolve<StateMachine>();
+        //stateMachine.Enter<BootstrapState>();
         BindGameBootstrapper();
     }
 

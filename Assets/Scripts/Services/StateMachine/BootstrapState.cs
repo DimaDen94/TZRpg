@@ -13,7 +13,7 @@
 
     public async void Enter()
     {
-        await _sceneLoader.LoadAsync(SceneEnum.CharacterSelector);
+        await _sceneLoader.LoadAsync(SceneEnum.Bootstrap);
         _characterService.LoadResources();
         _stateMachine.Enter<CharacterSelectorState>();
     }

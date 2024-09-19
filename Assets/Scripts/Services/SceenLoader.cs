@@ -6,10 +6,16 @@ public class SceenLoader :  ISceenLoader
 {
     public async Task LoadAsync(SceneEnum scene)
     {
-        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(scene.ToString());
-        while (!asyncOperation.isDone)
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        string targetSceneName = scene.ToString();
+
+        if (!currentSceneName.Equals(targetSceneName))
         {
-            await Task.Yield();
+            AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(targetSceneName);
+            while (!asyncOperation.isDone)
+            {
+                await Task.Yield();
+            }
         }
     }
 }
